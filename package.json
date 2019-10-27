@@ -1,0 +1,16 @@
+{
+  "name": "JS-Algo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/M-garrigan/JS-Algo.git",
+  "author": "M-garrigan <mgarrigan99@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "uuid": "^3.3.3"
+  }
+}
