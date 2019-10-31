@@ -6,7 +6,7 @@
   "author": "M-garrigan <mgarrigan99@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --recursive"
   },
   "dependencies": {
     "chai": "^4.2.0",
