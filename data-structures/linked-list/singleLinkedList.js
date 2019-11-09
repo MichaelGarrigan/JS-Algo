@@ -145,7 +145,41 @@ const insertCellAtHead = (sll, value) => {
 
   return sll;
 };
-const insertCellAtTail = () => {};
+
+const insertCellAtTail = (sll, value) => {
+  if (sll.sentinalTail) {
+    const key = sll.sentinalTail;
+    const id = uuid();
+
+    sll.sentinalTail = id;
+
+    sll[key].next = id;
+
+    sll[id] = {...cell};
+    sll[id].id = id;
+    sll[id].value = value;
+  } else { // linked list is empty
+    const id = uuid();
+
+    sll.sentinalHead = id;
+    sll.sentinalTail = id;
+
+    sll[id] = {...cell};
+    sll[id].id = id;
+    sll[id].value = value;
+    sll[id].next = null;
+  }
+
+  return sll;
+};
+
+// take a linked list and place them in an array
+const sllToArray = sll => {
+  let arr = [];
+
+  return arr;
+};
+
 const insertCellAfterValue = () => {};
 const insertCellBeforeValue = () => {};
 
@@ -153,9 +187,9 @@ const mapCells = () => {};
 
 const deleteCell = () => {};
 
-let list = initSLL([]);
-// let list = initSLL([1,2,3,4,5]);
-insertCellAtHead(list, 18);
+// let list = initSLL([]);
+let list = initSLL([1,2,3]);
+insertCellAtTail(list, 18);
 console.log('list: ',list);
 // console.log('find: ', findCellByValue(list, 6))
 

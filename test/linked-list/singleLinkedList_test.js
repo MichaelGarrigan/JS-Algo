@@ -23,7 +23,7 @@ describe('Single Linked List', function() {
       function() { expect(initSLL([])).to.be.a('object'); }
     );
     it(
-      'should return an object with "sentinalTop" and "sentinalBottom" properties when no argument is an empty array', 
+      'should return an object with "sentinalTop" and "sentinalBottom" properties when argument is an empty array', 
       function() { 
         expect(initSLL([])).to.have.property('sentinalTop');
         expect(initSLL([])).to.have.property('sentinalBottom'); 
