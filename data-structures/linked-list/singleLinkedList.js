@@ -173,9 +173,16 @@ const insertCellAtTail = (sll, value) => {
   return sll;
 };
 
-// take a linked list and place them in an array
+// take a linked list and place the values in an array
 const sllToArray = sll => {
   let arr = [];
+
+  let cell = sll.sentinalHead;
+
+  while (cell) {
+    arr.push(sll[cell].value);
+    cell = sll[cell].next;
+  }
 
   return arr;
 };
@@ -183,14 +190,39 @@ const sllToArray = sll => {
 const insertCellAfterValue = () => {};
 const insertCellBeforeValue = () => {};
 
-const mapCells = () => {};
+// no mutation of sll, returns a new copy
+// applies fn passed in to each cell in the list
+const mapCells = (sll, fn) => {
+  let copy = {...sll}; // copy of the linked list
 
-const deleteCell = () => {};
+  let cell = copy.sentinalHead;
+
+  while (cell) {
+    copy[cell].value = fn(copy[cell].value, copy[cell].id, copy);
+    
+    cell = copy[cell].next;
+  }
+
+  return copy;
+};
+
+const deleteCellById = (sll, id) => {
+  let copy = {...sll}; // copy of the linked list
+
+  // TODO
+  // empty list
+  // one item
+  // more than one
+};
+
+const deleteCellByValue = () => {};
 
 // let list = initSLL([]);
-let list = initSLL([1,2,3]);
-insertCellAtTail(list, 18);
-console.log('list: ',list);
+let list = initSLL([1,4,3,9]);
+// insertCellAtHead(list, 18);
+let mapped = mapCells(list, value => value*value);
+
+console.log('list: ',sllToArray(mapped));
 // console.log('find: ', findCellByValue(list, 6))
 
 module.exports = {
